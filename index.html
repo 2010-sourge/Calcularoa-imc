@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de IMC</title>
+ 
+    <!-- 🔗 Vinculando o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+ 
+  <body>
+ 
+    <!-- 🏠 Estrutura principal da página -->
+    <div class="pagina">
+ 
+      <!-- 🔝 Cabeçalho -->
+      <header class="cabecalho">
+        <div class="icone-cabecalho">⚖️</div>
+        <h1 class="titulo">Calculadora de IMC</h1>
+        <p class="subtitulo">Índice de Massa Corporal</p>
+      </header>
+ 
+      <!-- 📋 Cartão principal com o formulário -->
+      <main class="cartao">
+ 
+        <!-- 📝 Seção do formulário -->
+        <section class="secao-formulario">
+          <h2 class="titulo-secao">Seus dados</h2>
+ 
+          <!-- Campo: Peso -->
+          <div class="grupo-campo">
+            <label class="rotulo" for="peso">
+              Peso <span class="unidade">(kg)</span>
+            </label>
+            <div class="wrapper-input">
+              <input
+                class="campo"
+                type="number"
+                id="peso"
+                placeholder="Ex: 70"
+                min="1"
+                max="500"
+                step="0.1"
+              />
+              <span class="sufixo">kg</span>
+            </div>
+          </div>
+ 
+          <!-- Campo: Altura -->
+          <div class="grupo-campo">
+            <label class="rotulo" for="altura">
+              Altura <span class="unidade">(cm)</span>
+            </label>
+            <div class="wrapper-input">
+              <input
+                class="campo"
+                type="number"
+                id="altura"
+                placeholder="Ex: 170"
+                min="50"
+                max="300"
+              />
+              <span class="sufixo">cm</span>
+            </div>
+          </div>
+ 
+          <!-- Botão de calcular -->
+          <button class="botao-calcular" id="btnCalcular" onclick="calcularIMC()">
+            Calcular IMC
+          </button>
+        </section>
+ 
+        <!-- 📊 Seção do resultado (começa escondida) -->
+        <section class="secao-resultado" id="resultado">
+ 
+          <!-- Número do IMC -->
+          <div class="caixa-imc">
+            <p class="label-imc">Seu IMC</p>
+            <p class="numero-imc" id="valorIMC">--</p>
+          </div>
+ 
+          <!-- Classificação -->
+          <div class="badge-classificacao" id="badgeClassificacao">
+            --
+          </div>
+ 
+          <!-- Barra visual de IMC -->
+          <div class="barra-container">
+            <div class="barra-imc">
+              <div class="segmento seg-magro">Abaixo</div>
+              <div class="segmento seg-normal">Normal</div>
+              <div class="segmento seg-sobrepeso">Sobrepeso</div>
+              <div class="segmento seg-obesidade">Obesidade</div>
+            </div>
+            <!-- Marcador na barra -->
+            <div class="marcador" id="marcador" style="left: 0%"></div>
+          </div>
+ 
+          <!-- Tabela de referência -->
+          <div class="tabela-referencia">
+            <h3 class="titulo-tabela">Tabela de referência</h3>
+            <div class="linhas-tabela">
+              <div class="linha-tabela">
+                <span class="ponto ponto-magro"></span>
+                <span>Abaixo do peso</span>
+                <span class="valor-ref">Abaixo de 18,5</span>
+              </div>
+              <div class="linha-tabela">
+                <span class="ponto ponto-normal"></span>
+                <span>Peso normal</span>
+                <span class="valor-ref">18,5 – 24,9</span>
+              </div>
+              <div class="linha-tabela">
+                <span class="ponto ponto-sobrepeso"></span>
+                <span>Sobrepeso</span>
+                <span class="valor-ref">25 – 29,9</span>
+              </div>
+              <div class="linha-tabela">
+                <span class="ponto ponto-obesidade"></span>
+                <span>Obesidade</span>
+                <span class="valor-ref">30 ou mais</span>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Mensagem de aviso -->
+          <p class="aviso">
+            ⚠️ Esta calculadora é apenas informativa. Consulte um profissional de saúde para orientação personalizada.
+          </p>
+ 
+          <!-- Botão de limpar -->
+          <button class="botao-limpar" onclick="limpar()">
+            Calcular novamente
+          </button>
+ 
+        </section>
+ 
+      </main>
+ 
+      <!-- 📚 Seção educativa: como funciona -->
+      <section class="como-funciona">
+        <h2 class="titulo-como">Como funciona o cálculo?</h2>
+        <div class="formula-box">
+          <p class="formula-texto">IMC = Peso (kg) ÷ Altura² (m)</p>
+        </div>
+        <p class="explicacao">
+          Dividimos o peso em quilogramas pela altura em metros ao quadrado.
+          Por exemplo: 70kg ÷ (1,70 × 1,70) = <strong>24,2</strong>
+        </p>
+      </section>
+ 
+    </div><!-- fim .pagina -->
+ 
+    <!-- 🔗 Vinculando o arquivo JavaScript externo (sempre no final do body) -->
+    <script src="script.js"></script>
+ 
+  </body>
+</html>
+ 
